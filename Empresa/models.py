@@ -11,7 +11,7 @@ class Funcionario(models.Model):
 
 class Cargo(models.Model):
   Nivel = (
-    ("E", "Estagiário" ),
+    ("E", "Estagiário"),
     ("A", "Analista"),
     ("G", "Gerente")
   )
@@ -22,3 +22,13 @@ class Cargo(models.Model):
 
   def __str__(self):
     return self.descricao
+
+class Matricula(models.Model):
+  PERIODO = (
+    ('I', 'Inteiro'),
+    ('M', 'Meio Periodo'),
+    ('A', 'all time 24x7')
+  )
+  Funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
+  Cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE)
+  Periodo = models.CharField(max_length=1, choices=PERIODO, blank=False, null=False, default="I")
