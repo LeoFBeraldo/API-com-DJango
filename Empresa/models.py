@@ -1,6 +1,6 @@
 from django.db import models
 
-class Aluno(models.Model):
+class Funcionario(models.Model):
   nome = models.CharField(max_length=30)
   rg = models.CharField(max_length=9)
   cpf = models.CharField(max_length=11)
@@ -9,16 +9,16 @@ class Aluno(models.Model):
   def __str__(self):
     return self.nome 
 
-class Curso(models.Model):
+class Cargo(models.Model):
   Nivel = (
-    ("B", "Básico" ),
-    ("I", "Intermediário"),
-    ("A", "Avançado")
+    ("E", "Estagiário" ),
+    ("A", "Analista"),
+    ("G", "Gerente")
   )
 
-  codigo_curso = models.CharField(max_length=10)
+  codigo_Cargo = models.CharField(max_length=10)
   descricao = models.CharField(max_length=100)
-  nivel = models.CharField(max_length=1, choices=Nivel, blank=False, null=False, default="B")
+  nivel = models.CharField(max_length=1, choices=Nivel, blank=False, null=False, default="E")
 
   def __str__(self):
     return self.descricao

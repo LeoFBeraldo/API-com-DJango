@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Aluno',
+            name='Funcionario',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('nome', models.CharField(max_length=30)),
@@ -22,12 +22,12 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Curso',
+            name='Cargo',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('codigo_curso', models.CharField(max_length=10)),
+                ('codigo_Cargo', models.CharField(max_length=10)),
                 ('descricao', models.CharField(max_length=100)),
-                ('nivel', models.CharField(choices=[('B', 'Básico'), ('I', 'Intermediário'), ('A', 'Avançado')], default='B', max_length=1)),
+                ('nivel', models.CharField(choices=[('E', 'Estagiário'), ('A', 'Analista'), ('G', 'Gerente')], default='E', max_length=1)),
             ],
         ),
     ]
